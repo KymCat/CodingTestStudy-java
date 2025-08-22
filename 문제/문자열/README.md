@@ -102,6 +102,6 @@ StringBuilder, StringBuffer 는 문자열을 다룬다는 점에서 String 과 �
     동기화를 지원하지 않는다. 떄문에 StringBuffer 보다 상대적으로 속도를 빠르지만 멀티 스레드 환경에서
     안전하지 않다.
   
-    - StringBuffer  
-      동기화를 지원한다. 때문에 stringBuilder 보다 상대적으로 느리지만 멀티 스레드 환경에서는 안전하게 동작
-      할 수 있다. 즉, web 이나 소켓환경과 같이 비동기로 동작하는 경우가 많을 떄는 StringBuffer 를 사용하는 것이 좋다.
+  - StringBuffer  
+    동기화를 지원한다. 때문에 stringBuilder 보다 상대적으로 느리지만 멀티 스레드 환경에서는 안전하게 동작
+    할 수 있다. 즉, web 이나 소켓환경과 같이 비동기로 동작하는 경우가 많을 떄는 StringBuffer 를 사용하는 것이 좋다.
