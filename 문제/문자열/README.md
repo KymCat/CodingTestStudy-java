@@ -105,3 +105,8 @@ StringBuilder, StringBuffer 는 문자열을 다룬다는 점에서 String 과 �
   - StringBuffer  
     동기화를 지원한다. 때문에 stringBuilder 보다 상대적으로 느리지만 멀티 스레드 환경에서는 안전하게 동작
     할 수 있다. 즉, web 이나 소켓환경과 같이 비동기로 동작하는 경우가 많을 떄는 StringBuffer 를 사용하는 것이 좋다.
+
+##
+### ✏️ 출저
+- [String 클래스](https://moon99610.tistory.com/54)
+- [StringBuilder / StringBuffer](https://inpa.tistory.com/entry/JAVA-%E2%98%95-String-StringBuffer-StringBuilder-%EC%B0%A8%EC%9D%B4%EC%A0%90-%EC%84%B1%EB%8A%A5-%EB%B9%84%EA%B5%90#stringbuffer_/_stringbuilder_%EB%8A%94_%EA%B0%80%EB%B3%80)
