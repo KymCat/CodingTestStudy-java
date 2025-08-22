@@ -47,4 +47,49 @@
   3. 보안  
     문자열은 비밀번호, 사용자 정보, 네트워크 정보 등 중요한 정보를 저장하는데 사용되기에 불변성은 이러한 데이터가
     의도치 않게 변경되는 것을 막아준다.
-     
+
+##
+### 4️⃣ StringBuilder / StringBuffer
+StringBuilder, StringBuffer 는 문자열을 다룬다는 점에서 String 과 같지만 String 의 특징인 불변성과는 달리
+내부 버퍼에 문자열을 저장해두고 그 안에서 추가, 수정, 삭제 작업할 수 있게 가변적이다.  
+  
+이러한 특징 때문에 StringBuilder, StringBuffer 는 `.append()`, `.delete()` 등을 이용하여 동일 객체 내에서
+문자열을 변경하는 것이 가능하다.
+
+- ***메모리 관점에서의 차이점***  
+  ```java
+  String star = "*";
+      
+  for ( int i = 1; i < 10; i++ ) {
+  star += "*";
+  }
+  ```
+  ```java
+  StringBuffer sb= new StringBuffer("*");
+  sb.append("*********");
+  ```
+  ![memory](https://github.com/user-attachments/assets/915940af-eb0f-4c58-9d3d-a7d16f50b8de)  
+  
+  String 객체에서 문자열이 반복적으로 추가 될 때마다 새로운 객체가 생성되고 참조값이 변경되므로 메모리에서
+  참조되지 않은 객체들이 쌓이게 되고 결국 FULL GC를 일으킬 수 있는 원인이 된다.  
+    
+  반면 StringBuffer 는 메모리 블럭을 가변적으로 활용할 수 있기 때문에 효율적으로 문자열을 다룰 수 있다.
+    
+- ***문자열 합치기 성능***  
+  문자열을 합치기 위해서 자바에서는 `+` 기호를 지원한다. 하지만 위에 봤듯이 String 에서의 문자열 변경은
+  새로운 객체를 만들어서 이를 반복하면 메모리가 낭비된다는 결과를 가져오기에 `+` 기호 보다는 StringBuffer,
+  StringBuilder 의 `appned()` 메서드를 사용하는게 무조건 좋아 보인다.  
+    
+  하지만 이는 반은 맞고 반을 틀린 말이다.    
+    
+  ![concat](https://github.com/user-attachments/assets/c3d1d6ed-d735-47ca-96a2-be3b722200ee)  
+  자바는 문자열 `+` 연산에 컴파일 전 내부적으로 StringBuilder 클래스를 만든 후 다시 문자열로 반환한다.
+  ```java
+  String a = "hello" + "world";
+  /* 는 아래와 같다. */
+  String a = new StringBuilder("hello").append("world").toString();
+  // StringBuilder를 통해 "hello" 문자열을 생성하고 "world"를 추가하고 toString()을 통해 String 객체로 변환하여 반환
+  ```
+  그러면 `+` 연산을 적극적으로 사용해도 문제가 정말 없는 것 일까? 안타깝게도 위 코드를 보면 결국 `new StringBuilder`로
+  새로운 객체를 생성하고 다시 변수에 대입하는 비효율적인 행동을 하기에 반복적인 문자열 연산이 필요할 땐 처음부터
+  StringBuilder, StringBuffer 객체로 생성하여 처리하는 것이 효율적이다.
