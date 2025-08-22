@@ -93,3 +93,15 @@ StringBuilder, StringBuffer 는 문자열을 다룬다는 점에서 String 과 �
   그러면 `+` 연산을 적극적으로 사용해도 문제가 정말 없는 것 일까? 안타깝게도 위 코드를 보면 결국 `new StringBuilder`로
   새로운 객체를 생성하고 다시 변수에 대입하는 비효율적인 행동을 하기에 반복적인 문자열 연산이 필요할 땐 처음부터
   StringBuilder, StringBuffer 객체로 생성하여 처리하는 것이 효율적이다.
+    
+- ***StringBuilder vs StringBuffer 차이점***  
+두 클래스는 문자열을 가변적으로 처리할 수 있게 해주며 심지어 제공하는 메소드도 같고 사용하는 방법도 동일하다.
+유일하게 있는 차이점은 멀티 스레드에서 동기화의 지원 유무이다.
+
+  - StringBuilder  
+    동기화를 지원하지 않는다. 떄문에 StringBuffer 보다 상대적으로 속도를 빠르지만 멀티 스레드 환경에서
+    안전하지 않다.
+  
+    - StringBuffer  
+      동기화를 지원한다. 때문에 stringBuilder 보다 상대적으로 느리지만 멀티 스레드 환경에서는 안전하게 동작
+      할 수 있다. 즉, web 이나 소켓환경과 같이 비동기로 동작하는 경우가 많을 떄는 StringBuffer 를 사용하는 것이 좋다.
