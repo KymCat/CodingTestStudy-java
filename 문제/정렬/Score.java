@@ -1,10 +1,10 @@
 package 정렬;
 
-public class ScoreComparable implements Comparable<ScoreComparable>{
+public class Score implements Comparable<Score>{
     int english;
     int math;
 
-    public ScoreComparable(int english, int math) {
+    public Score(int english, int math) {
         this.english = english;
         this.math = math;
     }
@@ -18,7 +18,7 @@ public class ScoreComparable implements Comparable<ScoreComparable>{
     }
 
     @Override
-    public int compareTo(ScoreComparable o) {
+    public int compareTo(Score o) {
         // 내림차순 = o - this
         // 오름차순 = this - o
 
