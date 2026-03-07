@@ -1,4 +1,4 @@
-package 열거형;
+package 열거형.기본;
 
 public enum Week {
     MONDAY,
