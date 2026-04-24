@@ -1,4 +1,4 @@
-package 정렬;
+package 정렬.SortStrategy;
 
 public class Score implements Comparable<Score>{
     int english;

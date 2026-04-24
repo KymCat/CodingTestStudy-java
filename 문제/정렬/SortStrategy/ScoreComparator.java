@@ -1,8 +1,8 @@
-package 정렬;
+package 정렬.SortStrategy;
 
 import java.util.Comparator;
 
-public class ScoreComparator implements Comparator<Score> {
+public class    ScoreComparator implements Comparator<Score> {
 
     @Override
     public int compare(Score o1, Score o2) {

@@ -1,8 +1,8 @@
-package 정렬;
+package 정렬.SortStrategy;
 
 import java.util.ArrayList;
 
-public class ComparableMain {
+public class ComparatorMain {
     public static void main(String[] args) {
         ArrayList<Score> arr = new ArrayList<>();
         arr.add(new Score(80,100));
@@ -10,9 +10,7 @@ public class ComparableMain {
         arr.add(new Score(70,100));
         arr.add(new Score(80,90));
 
-        // 영어점수가 같으면 수학점수로 비교후 내림차순
-        arr.sort(null); // null : 구현한 compareTo() 기준으로 정렬
-        // arr.sort(Comparator.reverseOrder()); // 반대 정렬
+        arr.sort(new ScoreComparator());
         for (Score s : arr)
             System.out.println(s.toString());
     }
