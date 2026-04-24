@@ -24,7 +24,7 @@ public class Selection {
             arr[i] = Integer.parseInt(str.substring(i, i+1));
         }
 
-        // 선택정렬 시작
+        // 선택정렬 시작 - 내림차순은 최댓값 !
         for (int i = 0; i < str.length(); i++) {
             int maxIdx = i;
             for (int j = i + 1; j < str.length(); j++) {
