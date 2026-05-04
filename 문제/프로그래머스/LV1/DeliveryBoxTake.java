@@ -3,6 +3,9 @@ package 프로그래머스.LV1;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    2025 프로그래머스 코드챌린지 2차 예선 - 택배 상자 꺼내기
+ */
 public class DeliveryBoxTake {
     public static class Box {
         private int boxNumber;
